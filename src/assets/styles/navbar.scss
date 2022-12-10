@@ -1,0 +1,28 @@
+.navbar{
+    width: 100%;
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+
+    &-container{
+        padding: 10px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-logo{
+        height: 55px;
+        width: 110px;
+    }
+
+    &-button{
+        background-color: #fd9e02 ;
+        border: none;
+        padding: 8px;
+        border-radius: 5px;
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

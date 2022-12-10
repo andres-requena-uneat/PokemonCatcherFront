@@ -1,0 +1,94 @@
+.card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto;
+    justify-content: center;
+
+    &-image {
+        height: 56vh;
+        width: 56vh;
+        border-radius: 30px 30px 0px 0px;
+        border: 1px solid black;
+        border-bottom: none;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: white;
+
+        img.ball{
+            height: 36vh;
+            width: 36vh;
+        }
+        img.pokemon{
+            height: 56vh;
+            width: 56vh;
+        }
+
+        &.Bug {
+            background-image: url("../backgrounds/Bug.jpg");
+        }
+        &.Dark {
+            background-image: url("../backgrounds/Dark.jpg");
+        }
+        &.Dragon {
+            background-image: url("../backgrounds/Dragon.jpg");
+        }
+        &.Electric {
+            background-image: url("../backgrounds/Electric.jpg");
+        }
+        &.Fairy {
+            background-image: url("../backgrounds/Fairy.jpg");
+        }
+        &.Fighting {
+            background-image: url("../backgrounds/Fighting.jpg");
+        }
+        &.Fire {
+            background-image: url("../backgrounds/Fire.jpg");
+        }
+        &.Flying {
+            background-image: url("../backgrounds/Flying.jpg");
+        }
+        &.Ghost {
+            background-image: url("../backgrounds/Ghost.jpg");
+        }
+        &.Grass {
+            background-image: url("../backgrounds/Grass.jpg");
+        }
+        &.Ground {
+            background-image: url("../backgrounds/Ground.jpg");
+        }
+        &.Ice {
+            background-image: url("../backgrounds/Ice.jpg");
+        }
+        &.Normal {
+            background-image: url("../backgrounds/Normal.jpg");
+        }
+        &.Poison {
+            background-image: url("../backgrounds/Poison.jpg");
+        }
+        &.Psychic {
+            background-image: url("../backgrounds/Psychic.jpg");
+        }
+        &.Rock {
+            background-image: url("../backgrounds/Rock.jpg");
+        }
+        &.Steel {
+            background-image: url("../backgrounds/Steel.jpg");
+        }
+        &.Water {
+            background-image: url("../backgrounds/Water.jpg");
+        }
+    }
+    &-info {
+        min-height: 20vh;
+        width: 56vh;
+        background-color: #f5d45c;
+        border-radius: 0px 0px 30px 30px;
+        border: 1px solid black;
+        border-top: none;
+    }
+}

@@ -1,0 +1,100 @@
+.box {
+    &-container {
+        width: 605px;
+    }
+
+    &-name {
+        display: flex;
+        justify-content: center;
+
+        &-button {
+            &-previous {
+                height: 30px;
+                width: 30px;
+                margin: 10px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background-color: rgba(0, 0, 0, 0);
+                border: none;
+                border-radius: 0px;
+
+                transform: rotate(180deg);
+                img {
+                    height: 20px;
+                }
+            }
+            &-next {
+                height: 30px;
+                width: 30px;
+                margin: 10px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background-color: rgba(0, 0, 0, 0);
+                border: none;
+                border-radius: 0px;
+
+                img {
+                    height: 20px;
+                }
+            }
+        }
+
+        div {
+            width: 170px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: gray 1px solid;
+            border-radius: 5px;
+            margin: 10px;
+
+            background-image: url("../images/box-header.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &-cell {
+        img {
+            width: 96px;
+            height: 96px;
+        }
+    }
+    &-cell + .box-delete-button {
+        display: none;
+    }
+    &-cell:hover + .box-delete-button {
+        display: block;
+    }
+    &-delete-button {
+        img {
+            width: 20px;
+            height: 20px;
+        }
+        margin-left: 70px;
+        margin-top: -90px;
+        position: fixed;
+
+        &:hover{
+            display:block
+        }
+    }
+
+    &-grid {
+        gap: 5px;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        width: 605px;
+        height: 520px;
+        background-image: url("../images/box-wallpaper.png");
+        background-repeat: no-repeat;
+        background-size: 640px 555px;
+    }
+}
