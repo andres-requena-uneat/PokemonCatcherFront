@@ -19,3 +19,7 @@ export async function getBox(boxPage) {
 export async function releasePokemon(pokemonId) {
     return await axios.delete(`${process.env.REACT_APP_API}?_id=${pokemonId}`)
 }
+
+export async function renamePokemon(pokemonId, nickname) {
+    return await axios.put(`${process.env.REACT_APP_API}?_id=${pokemonId}&nickname=${nickname}`)
+}

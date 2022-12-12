@@ -1,11 +1,15 @@
-import React from 'react'
 import '../assets/styles/card.scss';
 import Pokemon from '../interfaces/Pokemon';
 import capFirstLetter from '../utils/utils';
-import {default as Normal} from '../assets/backgrounds/Normal.jpg'
+import {default as Pencil} from '../assets/icons/pencil-solid.svg'
+import {default as Save} from '../assets/icons/floppy-disk-solid.svg'
+import { useState } from 'react';
+import { renamePokemon, getBox } from '../Repository/requests'
 
 interface CardProps {
     pokemon: Pokemon
+    currentPage?: number
+    editable?: boolean
 }
 
 const types = (pokemon: Pokemon) => {
@@ -15,10 +19,24 @@ const types = (pokemon: Pokemon) => {
     return capFirstLetter(pokemon.type1)
 }
 
-const Card = ({pokemon} : CardProps) => {
+
+
+const Card = ({pokemon, currentPage, editable} : CardProps) => {
+
+    const [edit, setEdit] = useState(false)
+    const [name, setName] = useState(pokemon.name)
+
     const getType = () => {
         if (pokemon.dex === 0) return "ball"
         else return "pokemon"
+    }
+
+    const changeMode = () => {
+        if(edit){
+            renamePokemon(pokemon._id, name)
+            getBox(currentPage)
+        }
+        setEdit(!edit)
     }
 
     return(
@@ -27,7 +45,19 @@ const Card = ({pokemon} : CardProps) => {
                 <img className={`${getType()}`} src={pokemon.image} alt=''/> 
             </div>
             <div className='card-info'>
-                <p>{`#${pokemon.dex}: ${capFirstLetter(pokemon.name)}`}</p>
+                {
+                    editable && edit ?
+                    <>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <img className='icon' src={Save} alt="Edit" onClick={changeMode} />
+                    </>
+                    :
+                    <p>{`#${pokemon.dex}: ${capFirstLetter(pokemon.name)}`}
+                    {
+                        editable && <img className='icon' src={Pencil} alt="Edit" onClick={changeMode} /> 
+                    }
+                    </p>
+                }
                 <p>{`Habilidad: ${capFirstLetter(pokemon.ability)}`}</p>
                 <p>{`Tipo: ${types(pokemon)}`}</p>
             </div>

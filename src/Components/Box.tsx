@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Pokemon from "../interfaces/Pokemon";
 import { getBox, releasePokemon } from "../Repository/requests";
 import '../assets/styles/box.scss';
@@ -6,9 +6,11 @@ import { arrow, xbutton } from "../assets/icons";
 
 interface BoxProps {
     showPokemon: Function
+    boxPage: number
+    setBoxPage: Function
 }
 
-const Box = ({ showPokemon }: BoxProps) => {
+const Box = ({ showPokemon,boxPage,setBoxPage }: BoxProps) => {
     const placeholderPokemon: Pokemon = {
         _id: "",
         ability: "",
@@ -19,7 +21,6 @@ const Box = ({ showPokemon }: BoxProps) => {
         image: "https://pngimg.com/uploads/pokeball/pokeball_PNG8.png",
         sprite: ""
     }
-    const [boxPage, setBoxPage] = useState(1);
     const [pokemonList, setPokemonList] = useState<Pokemon[]>([
         {
             _id: "",
