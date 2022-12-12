@@ -40,10 +40,6 @@ const Box = ({ showPokemon }: BoxProps) => {
 
     useEffect(() => {
         fetchPokemonInBox()
-    }, [])
-
-    useEffect(() => {
-        fetchPokemonInBox()
     }, [boxPage])
 
     return <div className="box-container">

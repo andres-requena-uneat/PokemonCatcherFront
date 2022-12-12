@@ -1,8 +1,7 @@
 import axios from "axios";
 
 export async function  getRandomPokemon() {
-    let dexNum = Math.floor(Math.random() * 905) + 1;
-    return await axios.get(`${process.env.REACT_APP_POKEAPI}${dexNum}`)
+    return await axios.get(process.env.REACT_APP_API)
 }
 
 export async function catchPokemon(pokemon) {

@@ -20,8 +20,8 @@ const Wild = () => {
 
     const getPokemon = async () => {
         const pokemonData = await getRandomPokemon()
+        console.log(pokemonData)
         const shinyChance = Math.floor(Math.random() * 4096) === 1;
-
         const tempPokemon = {
             "_id": "",
             "ability": pokemonData.data.abilities[0].ability.name,
