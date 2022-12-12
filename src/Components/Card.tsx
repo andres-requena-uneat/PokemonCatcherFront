@@ -3,7 +3,7 @@ import Pokemon from '../interfaces/Pokemon';
 import capFirstLetter from '../utils/utils';
 import {default as Pencil} from '../assets/icons/pencil-solid.svg'
 import {default as Save} from '../assets/icons/floppy-disk-solid.svg'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { renamePokemon, getBox } from '../Repository/requests'
 
 interface CardProps {
@@ -19,8 +19,6 @@ const types = (pokemon: Pokemon) => {
     return capFirstLetter(pokemon.type1)
 }
 
-
-
 const Card = ({pokemon, currentPage, editable} : CardProps) => {
 
     const [edit, setEdit] = useState(false)
@@ -34,10 +32,15 @@ const Card = ({pokemon, currentPage, editable} : CardProps) => {
     const changeMode = () => {
         if(edit){
             renamePokemon(pokemon._id, name)
-            getBox(currentPage)
+            pokemon.name = name
         }
         setEdit(!edit)
     }
+
+    useEffect(() => {
+      setName(pokemon.name)
+    }, [pokemon.name])
+    
 
     return(
         <div className="card">
@@ -54,7 +57,7 @@ const Card = ({pokemon, currentPage, editable} : CardProps) => {
                     :
                     <p>{`#${pokemon.dex}: ${capFirstLetter(pokemon.name)}`}
                     {
-                        editable && <img className='icon' src={Pencil} alt="Edit" onClick={changeMode} /> 
+                        editable && pokemon.dex !== 0 && <img className='icon' src={Pencil} alt="Edit" onClick={changeMode} /> 
                     }
                     </p>
                 }
